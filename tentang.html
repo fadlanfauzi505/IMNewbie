@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tentang</title>
+</head>
+<body class="tentang">
+    <div class="overlay"></div>
+    <header class="home-page">
+<h1>
+    tentang Fadlanghg23
+</h1>
+<button id="menu-toggle" class="menu-toggle">☰</button>
+</header>
+
+<div id="overlay" class="overlay"></div>
+
+<nav id="sidebar" class="side-menu">
+      <ul>
+        <li><a href="index.html"> 🏠 Beranda</a></li>
+        <li><a href="tentang.html" class="active"> 🗒️ Tentang</a></li>
+        <li><a href="player.html"> 👤 player</a></li>
+        <li><a href="galeri.html"> 🖼️ Galeri</a></li>
+        <li><a href="musik.html"> 🎵 musik</a></li>
+      </ul>
+    </nav>
+
+    <main class="home-page">
+<h2>
+    berikut tentang Fadlanghg23
+</h2>
+
+<h3>1.sekolah</h3>
+
+<ul>
+<li><span>tk:cahaya hati</span></li>
+<li><span>sd:madrasah ikhtidahiyah al-munanarrah</span></li>
+<li><span>smp:smpn 19 kota jambi</span></li>
+<li><span>smk:smkn 1 kota jambi</span></li>
+</ul>
+
+
+<h3>2.makanan Favorit</h3>
+
+<ul>
+<li><span>mie ayam</span></li>
+<li><span>ketoprak</span></li>
+<li><span>fried chicken</span></li>
+<li><span>burger</span></li>
+<li><span>pizza</span></li>
+<li><span>martabak/terang bulan</span></li>
+</ul>
+
+<h3>3.minuman favorit</h3>
+
+<ul>
+<li><span>jus alpuckat</span></li>
+<li><span>jus durian</span></li>
+<li><span>air es</span></li>
+<li><span>air</span></li>
+<li><span>es teh</span></li>
+<li><span>kopi</span></li>
+<li><span>susu</span></li>
+</ul>
+
+<h3>4.buah-buahan favorit</h3>
+
+<ul>
+<li><span>durian</span></li>
+<li><span>apple</span></li>
+<li><span>pir</span></li>
+<li><span>semangka</span></li>
+<li><span>kurma</span></li>
+<li><span>melon</span></li>
+<li><span>jeruk</span></li>
+<li><span>mangga</span></li>
+</ul>
+
+<h3>5.alergi</h3>
+
+<ul>
+    <li><span>udang</span></li>
+</ul>
+
+    </main>
+        <footer class="home-page">© website Fadlanghg23</footer>
+
+        <script>
+  const toggle = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const links = document.querySelectorAll('#sidebar a');
+
+  // Toggle buka / tutup sidebar
+  toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('show');
+    toggle.classList.toggle('active');
+  });
+
+  // Klik overlay → tutup
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+    toggle.classList.remove('active');
+  });
+
+  // Klik link → tutup sidebar juga
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+      toggle.classList.remove('active');
+    });
+  });
+</script>
+</body>
+
+</html>

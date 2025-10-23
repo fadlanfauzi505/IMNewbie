@@ -1,0 +1,435 @@
+/* =========================================================
+   🌍 GLOBAL STYLE
+========================================================= */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: aliceblue;
+  color: #111827;
+}
+
+/* =========================================================
+   🧭 HEADER
+========================================================= */
+header {
+  display: flex;
+  justify-content: space-between; /* H1 di kiri, tombol di kanan */
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: black;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 100;
+}
+
+/* Judul situs di kiri */
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Tombol menu di kanan */
+.menu-toggle {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Rotasi tombol saat aktif */
+.menu-toggle.active {
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   📱 SIDEBAR SLIDE-IN DARI KANAN BAWAH
+========================================================= */
+.side-menu {
+  position: fixed;
+  bottom: -100%; /* mulai tersembunyi di bawah */
+  right: -100%; /* mulai tersembunyi di kanan */
+  width: 260px;
+  height: 60%;
+  background: rgba(28, 28, 28, 0.95);
+  color: white;
+  border-radius: 20px 0 0 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  padding-top: 2rem;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+/* Saat aktif, sidebar naik ke atas dan muncul dari kanan */
+.side-menu.open {
+  bottom: 0;
+  right: 0;
+}
+
+/* Isi menu */
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.side-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.side-menu li a:hover {
+  background-color: rgba(255,255,255,0.1);
+  transform: translateX(5px);
+}
+
+/* =========================================================
+   🌫️ OVERLAY
+========================================================= */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 500;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================================
+   🧩 RESPONSIVE
+========================================================= */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .menu-toggle {
+    font-size: 1.5rem;
+  }
+
+  .side-menu {
+    width: 220px;
+    height: 65%;
+  }
+}
+
+/* =========================================================
+   📄 MAIN CONTENT
+========================================================= */
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: #111;
+}
+
+/* =========================================================
+   🦶 FOOTER
+========================================================= */
+footer {
+  background-color: transparent;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* =========================================================
+   🖼️ GALERI SECTION
+========================================================= */
+.galeri {
+  text-align: center;
+  color: #fff;
+}
+
+.galeri h2 {
+  color: #000;
+  font-size: 26px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.galeri p {
+  color: #222;
+  font-size: 15px;
+  margin-bottom: 25px;
+  letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   🖼️ GRID GALERI
+========================================================= */
+.grid-galeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  padding: 20px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   🎴 FRAME GAMBAR
+========================================================= */
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: none;
+  border: none;
+  margin: 0;
+}
+
+/* =========================================================
+   🎵 GAMBAR DENGAN SUARA
+========================================================= */
+.gambar-suara {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 15px;
+  border: 3px solid #2563eb;
+  background-color: #0f172a;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+  cursor: pointer;
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gambar-suara:hover {
+  transform: scale(1.03);
+  filter: brightness(1.15);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.7);
+}
+
+.gambar-suara:active {
+  transform: scale(0.97);
+  filter: brightness(1.3);
+  box-shadow: 0 0 20px gold;
+}
+
+.gambar-suara.clicked {
+  animation: pulseClick 0.5s ease;
+}
+
+/* =========================================================
+   💫 ANIMASI KLIK
+========================================================= */
+@keyframes pulseClick {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 100, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+  }
+}
+
+/* =========================================================
+   🖋️ TEKS CAPTION
+========================================================= */
+figcaption {
+  margin-top: 10px;
+  color: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+}
+
+figcaption strong {
+  display: block;
+  color: #facc15;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  text-shadow: 0 0 8px rgba(255, 255, 150, 0.7);
+}
+
+/* =========================================================
+   ✅ STATUS PLAYER
+========================================================= */
+.status-on {
+  color: #22c55e;
+  font-weight: bold;
+  animation: blink-green 1.5s infinite alternate;
+}
+
+.status-off {
+  color: #ef4444;
+  font-weight: bold;
+  animation: blink-red 1.5s infinite alternate;
+}
+
+@keyframes blink-green {
+  from { opacity: 1; text-shadow: 0 0 5px #4ade80; }
+  to { opacity: 0.7; text-shadow: 0 0 15px #22c55e; }
+}
+
+@keyframes blink-red {
+  from { opacity: 1; text-shadow: 0 0 5px #f87171; }
+  to { opacity: 0.7; text-shadow: 0 0 15px #ef4444; }
+}
+
+/* =========================================================
+   🎤 MUSIC COVER
+========================================================= */
+.daftar-musik {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.musik-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f0f5ff;
+  border-left: 5px solid #2563eb;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.musik-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.musik-cover {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #2563eb;
+}
+
+.musik-info {
+  flex: 1;
+}
+
+.musik-info h3 {
+  margin: 0;
+  color: #1d4ed8;
+}
+
+.musik-info p {
+  margin: 0.3rem 0;
+  color: #333;
+}
+
+audio {
+  width: 100%;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+}
+
+.musik-item.aktif {
+  background-color: #e0ebff;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+.musik-item.aktif h3 {
+  color: #0f3dc0;
+  text-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+}
+
+/* =========================================================
+   🏞️ BACKGROUND SETIAP HALAMAN DENGAN OVERLAY
+========================================================= */
+body.home-page {
+  background: url('smkn 1.jpg') center/cover fixed no-repeat;
+}
+
+body.tentang {
+  background: url('kertas.jpg') center/cover fixed no-repeat;
+}
+
+body.player {
+  background: url('ba bg.jpg') center/cover fixed no-repeat;
+}
+
+body.galery {
+  background: url('luar angkasa.jpg') center/cover fixed no-repeat;
+}
+
+body.musik {
+  background: url('danau toba.jpg') center/cover fixed no-repeat;
+}
+
+/* Overlay untuk semua halaman yang memiliki background */
+body.home-page::before,
+body.tentang::before,
+body.player::before,
+body.galery::before,
+body.musik::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+/* Konten di atas overlay */
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   📱 RESPONSIVE DESIGN
+========================================================= */
+@media (max-width: 600px) {
+  .grid-galeri {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+
+  figcaption {
+    font-size: 0.8rem;
+  }
+
+  figcaption strong {
+    font-size: 0.9rem;
+  }
+
+  .musik-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .musik-cover {
+    width: 150px;
+    height: 150px;
+  }
+}
