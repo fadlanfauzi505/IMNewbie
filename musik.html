@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musik | Website Saya</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="musik">
+  <div class="overlay"></div>
+  <!-- ================= HEADER ================= -->
+  <header class="home-page">
+    <h1>Musik Favorit Saya</h1>
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+</header>
+
+<div id="overlay" class="overlay"></div>
+
+<nav id="sidebar" class="side-menu">
+      <ul>
+       <li><a href="index.html"> 🏠 Beranda</a></li>
+        <li><a href="tentang.html"> 🗒️ Tentang</a></li>
+        <li><a href="player.html"> 👤 player</a></li>
+        <li><a href="galeri.html"> 🖼️ Galeri</a></li>
+        <li><a href="musik.html" class="active"> 🎵 musik</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="home-page">
+    <h2>Musik</h2>
+    <p>Berikut adalah beberapa musik yang Fadlanghg23 sukai:</p>
+
+    <section class="daftar-musik">
+      <article class="musik-item">
+        <img src="aiscream cover.jpeg" alt="cover musik" class="musik-cover">
+        <h3>Lagu 1</h3>
+        <p><em>Judul Lagu:</em> 愛♡スクリ～ム！</p>
+        <p><strong>Penyanyi:</strong> AiScReam</p>
+        <audio controls>
+          <source src="AiScReam『愛♡スクリ～ム！』Official Lyric Video - (Love Live! seri.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </article>
+
+      <article class="musik-item">
+                <img src="payphone cover.jpeg" alt="cover musik" class="musik-cover">
+        <h3>Lagu 2</h3>
+        <p><em>Judul Lagu:</em> Payphone ft. Wiz Khalifa</p>
+        <p><strong>Penyanyi:</strong> Marron 5 and Wiz Khalifa</p>
+        <audio controls>
+          <source src="Maroon 5 - Payphone ft. Wiz Khalifa (Lyric Video) - Maroon5VEVO.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </article>
+
+      <article class="musik-item">
+                <img src="au 27 shop cover.jpeg" alt="cover musik" class="musik-cover">
+        <h3>Lagu 3</h3>
+        <p><em>Judul Lagu:</em> UNDERTALE The Last 27 Hours</p>
+        <p><strong>Penyanyi:</strong> Qualifie -Shop SANS Fight</p>
+        <audio controls>
+          <source src="【UNDERTALE The Last 27 Hours】Qualifie -Shop SANS Fight (Official) - NotHentaiNeko.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </article>
+
+      <article class="musik-item">
+                <img src="Stay.png" alt="cover musik" class="musik-cover">
+        <h3>Lagu 4</h3>
+        <p><em>Judul Lagu:</em> STAY</p>
+        <p><strong>Penyanyi:</strong> Justin Bieber</p>
+        <audio controls>
+          <source src="The Kid LAROI, Justin Bieber - STAY (Official Video) - TheKidLAROIVEVO.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </article>
+
+      <article class="musik-item">
+                <img src="butcher vanity.jpg" alt="cover musik" class="musik-cover">
+        <h3>Lagu 5</h3>
+        <p><em>Judul Lagu:</em> butcher vanity</p>
+        <p><strong>Penyanyi:</strong> Yi Xi</p>
+        <audio controls>
+          <source src="BUTCHER VANITY ft. Yi Xi - Vane Lily.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </article>
+
+      <article class="musik-item">
+                <img src="dia delicia.jpg" alt="cover musik" class="musik-cover">
+        <h3>Lagu 6</h3>
+        <p><em>Judul Lagu:</em> STAY</p>
+        <p><strong>Penyanyi:</strong> MAFIA</p>
+        <audio controls>
+          <source src="DIA DELÍCIA - MAFIA.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </article>
+
+      <article class="musik-item">
+                <img src="you(=i).jpg" alt="cover musik" class="musik-cover">
+        <h3>Lagu 7</h3>
+        <p><em>Judul Lagu:</em> you(=i)</p>
+        <p><strong>Penyanyi:</strong> bol4</p>
+        <audio controls>
+          <source src="[Lyrics Video] BOL4(볼빨간사춘기) - You(I) - SUPER SOUND Bugs!.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </article>
+
+      <article class="musik-item">
+                <img src="number.jpg" alt="cover musik" class="musik-cover">
+        <h3>Lagu 8</h3>
+        <p><em>Judul Lagu:</em> NUMBER</p>
+        <p><strong>Penyanyi:</strong> TWERKNATION28</p>
+        <audio controls>
+          <source src="TWERKNATION28 - NUMBER.mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="home-page">
+    <p>© 2025 Website Fadlanghg23</p>
+  </footer>
+
+  <script>
+  // Ambil semua elemen audio di halaman
+  const allAudio = document.querySelectorAll("audio");
+
+  allAudio.forEach(audio => {
+    audio.addEventListener("play", () => {
+      // Saat satu audio mulai diputar, hentikan semua audio lain
+      allAudio.forEach(otherAudio => {
+        if (otherAudio !== audio) {
+          otherAudio.pause();
+          otherAudio.currentTime = 0; // reset ke awal
+        }
+      });
+    });
+  });
+      const audios = document.querySelectorAll('audio');
+    const items = document.querySelectorAll('.musik-item');
+
+    audios.forEach((audio, index) => {
+      audio.addEventListener('play', () => {
+        audios.forEach((otherAudio, i) => {
+          if (otherAudio !== audio) {
+            otherAudio.pause();
+            otherAudio.currentTime = 0;
+            items[i].classList.remove('aktif');
+          }
+        });
+        items[index].classList.add('aktif');
+      });
+
+      audio.addEventListener('pause', () => {
+        items[index].classList.remove('aktif');
+      });
+
+      audio.addEventListener('ended', () => {
+        items[index].classList.remove('aktif');
+      });
+    });
+
+  const toggle = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const links = document.querySelectorAll('#sidebar a');
+
+  // Toggle buka / tutup sidebar
+  toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('show');
+    toggle.classList.toggle('active');
+  });
+
+  // Klik overlay → tutup
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+    toggle.classList.remove('active');
+  });
+
+  // Klik link → tutup sidebar juga
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+      toggle.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+
+</html>
