@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda | Website Fadlanghg23</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+  <div class="overlay"></div>
+  <header class="home-page">
+    <h1>Website Fadlanghg23</h1>
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+</header>
+
+<div id="overlay" class="overlay"></div>
+
+<nav id="sidebar" class="side-menu">
+      <ul>
+        <li><a href="index.html" class="active"> 🏠 Beranda</a></li>
+        <li><a href="tentang.html"> 🗒️ Tentang</a></li>
+        <li><a href="player.html"> 👤 player</a></li>
+        <li><a href="galeri.html"> 🖼️ Galeri</a></li>
+        <li><a href="musik.html"> 🎵 musik</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="home-page">
+    <h2>welcome my bro</h2>
+    <p>Ini adalah halaman beranda website Fadlanghg23. ini masih tahap uji coba. jadi jika ada bug/kurang bagus, mohon maaf soalnya saya masih pemula.</p>
+  </main>
+
+
+  <footer class="home-page">
+    <p>© 2025 Website Fadlanghg23</p>
+  </footer>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const links = document.querySelectorAll('#sidebar a');
+
+  // Toggle buka / tutup sidebar
+  toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('show');
+    toggle.classList.toggle('active');
+  });
+
+  // Klik overlay → tutup
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+    toggle.classList.remove('active');
+  });
+
+  // Klik link → tutup sidebar juga
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('show');
+      toggle.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+
+</html>
