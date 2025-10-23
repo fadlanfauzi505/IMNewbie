@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri | Website Fadlanghg23</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="galery">
+  <div class="overlay"></div>
+  <header class="home-page">
+    <h1>Galeri</h1>
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+</header>
+
+<div id="overlay" class="overlay"></div>
+
+<nav id="sidebar" class="side-menu">
+      <ul>
+        <li><a href="index.html"> 🏠 Beranda</a></li>
+        <li><a href="tentang.html"> 🗒️ Tentang</a></li>
+        <li><a href="player.html"> 👤 player</a></li>
+        <li><a href="galeri.html" class="active"> 🖼️ Galeri</a></li>
+        <li><a href="musik.html"> 🎵 musik</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="home-page">
+    <section class="galeri">
+      <h2>Kumpulan Gambar</h2>
+      <p>Berikut beberapa gambar character yang disukai Fadlanghg23:</p>
+
+      <div class="grid-galeri">
+
+        <figure>
+          <img src="sans_undertale.jpg" alt="sans undertale" class="gambar-suara" data-audio="Sans Talking.mp3">
+          <figcaption>
+            <strong>Sans Undertale</strong><br>
+            “It's a beautiful day outside... birds are singing, flowers are blooming...”
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="shiroko.jpg" alt="sunaookami shiroko" class="gambar-suara" data-audio="Shiroko_Cafe_Act_2.ogg.mp3">
+          <figcaption>
+            <strong>Sunaookami Shiroko</strong><br>
+            Seorang siswi penembak jitu yang tenang dan cekatan dari Blue Archive.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="hoshino.jpg" alt="takanashi hoshino" class="gambar-suara" data-audio="hoshino_uhe.mp3">
+          <figcaption>
+            <strong>Takanashi Hoshino</strong><br>
+            Ceria tapi tangguh, anggota abydos high school yang selalu membawa shotgun kesayangannya.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="heathcliff.jpg" alt="erling heathcliff" class="gambar-suara" data-audio="wildhunt_laugh_3.mp3">
+          <figcaption>
+            <strong>Erling Heathcliff</strong><br>
+            “The wild hunt never stops… laughter echoes through the fog.”
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="jacket hotline miami.jpg" alt="jacket hotline miami" class="gambar-suara" data-audio="jacket do you now what time it is.mp3">
+          <figcaption>
+            <strong>Jacket (Hotline Miami)</strong><br>
+            Pembunuh bertopeng yang misterius dan brutal — tanpa kata, hanya tindakan.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="biker hotline miami.jpg" alt="biker hotline miami" class="gambar-suara" data-audio="biker-miami-hotline.mp3">
+          <figcaption>
+            <strong>Biker (Hotline Miami)</strong><br>
+            Cepat, penuh amarah, dan selalu siap untuk membalas dendam.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="brandon hotline miami.jpg" alt="brandon hotline miami" class="gambar-suara" data-audio="brandon-hotline-miami.mp3">
+          <figcaption>
+            <strong>Brandon (Hotline Miami)</strong><br>
+            Salah satu karakter misterius dengan masa lalu kelam di Miami.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="red hood bs.jpg" alt="red hood black souls" class="gambar-suara">
+          <figcaption>
+            <strong>Red Hood (Black Souls)</strong><br>
+            “The hunt begins again.” — pahlawan gelap dari dunia fantasi kelam.
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="home-page">
+    <p>© 2025 Website Fadlanghg23</p>
+  </footer>
+
+  <!-- 🎧 Script untuk suara -->
+<script>
+// =========================================================
+// 🎵 Script 1 — Klik gambar untuk memainkan suara
+// =========================================================
+const gambarList = document.querySelectorAll('.gambar-suara');
+let currentAudio = null;
+
+gambarList.forEach(gambar => {
+  gambar.addEventListener('click', () => {
+    const audioSrc = gambar.getAttribute('data-audio');
+
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+
+    const audio = new Audio(audioSrc);
+    audio.play();
+    currentAudio = audio;
+
+    // Efek klik
+    gambar.classList.add("clicked");
+    setTimeout(() => gambar.classList.remove("clicked"), 400);
+  });
+});
+</script>
+
+
+<script>
+// =========================================================
+// 📱 Script 2 — Toggle Sidebar Menu
+// =========================================================
+const menuButton = document.getElementById('menu-toggle'); // tombol menu
+const sidebar = document.getElementById('sidebar');        // elemen sidebar
+const overlay = document.getElementById('overlay');        // elemen overlay
+
+// Klik tombol menu
+menuButton.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('show');
+  menuButton.classList.toggle('active');
+});
+
+// Klik overlay → tutup menu
+overlay.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('show');
+  menuButton.classList.remove('active');
+});
+
+// Klik link di sidebar → tutup menu
+const sidebarLinks = sidebar.querySelectorAll('a');
+sidebarLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+    menuButton.classList.remove('active');
+  });
+});
+</script>
+
+</body>
+</html>
